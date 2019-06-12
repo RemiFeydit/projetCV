@@ -10,7 +10,7 @@ address VARCHAR(50),
 postalCode INT,
 city VARCHAR(15),
 gitLink VARCHAR(50),
-linkedinLink VARCHAR(50),
+linkedinLink VARCHAR(75),
 picture VARCHAR(50),
 PRIMARY KEY (id)
 );
@@ -47,7 +47,7 @@ jobName VARCHAR(20),
 idAdmin INT,
 PRIMARY KEY (id),
 FOREIGN KEY (idAdmin) REFERENCES Admin(id)
-)
+);
 
 CREATE TABLE Contact
 (
@@ -62,7 +62,7 @@ PRIMARY KEY (id),
 FOREIGN KEY (idAdmin) REFERENCES Admin(id)
 );
 
-CREATE TABLE User
+CREATE TABLE UserCV
 (
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(20),
