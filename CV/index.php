@@ -1,29 +1,5 @@
-<?php
-    $database_host = 'localhost';
-    $database_port = '3306';
-    $database_dbname = 'connectedCV';
-    $database_user = 'root';
-    $database_password = 'Yugioh2013*';
-    $database_charset = 'UTF8';
-    $database_options = [
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    ];
-
-    $pdo = new PDO(
-        'mysql:host=' . $database_host . 
-        ';port=' . $database_port . 
-        ';dbname=' . $database_dbname . 
-        ';charset=' . $database_charset, 
-        $database_user,
-        $database_password,
-        $database_options
-    );
-?>
-
-
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="fr">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,25 +8,30 @@
     <meta name="description" content="Creative CV is a HTML resume template for professionals. Built with Bootstrap 4, Now UI Kit and FontAwesome, this modern and responsive design template is perfect to showcase your portfolio, skils and experience."/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" />
     <link href="css/aos.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php 
+    include_once('./func/pdo.php');
+    $pdo = connect_pdo();
+    ?>
   </head>
   <body id="top">
     <header>
       <div class="profile-page sidebar-collapse">
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
           <div class="container">
-            <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip"><b>rfeydit</b>.com</a>
+            <div class="navbar-translate"><a class="navbar-brand" href="./index.php" rel="tooltip"><b>rfeydit</b>.com</a>
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
               <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">À propos de moi</a></li>
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Compétences</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Expérience professionelle</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Éducation</a></li>
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
               </ul>
             </div>
@@ -179,82 +160,63 @@
 <div class="section" id="experience">
   <div class="container cc-experience">
     <div class="h4 text-center mb-4 title">Expérience professionelle</div>
+
+    <?php
+        $query = $pdo->prepare('SELECT * FROM ProfessionalExperience');
+        $query->execute();
+        $experiences = $query->fetchAll();
+        foreach ($experiences as $experience)
+    {?>   
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-experience-header">
-            <p>March 2016 - Present</p>
-            <div class="h5">CreativeM</div>
+            <p><?php echo $experience['startDate']. ' - '. $experience['endDate']  ?></p>
+            <div class="h5"><?php echo $experience['companyName'] ?></div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">Front End Developer</div>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+            <div class="h5"><?php echo $experience['jobName'] ?></div>
+            <p><?php echo $experience['description'] ?></p>
           </div>
         </div>
       </div>
     </div>
+        <?php } ?>
 <!-- End Section experience -->
     </div>
    </div>
   </div>
 </div>
-<div class="section">
+<div class="section" id="education">
   <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Education</div>
+    <div class="h4 text-center mb-4 title">Éducation</div>
+    <?php
+        $query = $pdo->prepare('SELECT * FROM Education');
+        $query->execute();
+        $educations = $query->fetchAll();
+        foreach ($educations as $education)
+    {?>
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-education-header">
-            <p>2013 - 2015</p>
-            <div class="h5">Master's Degree</div>
+          <div class="h5"><?php echo $education['startDate'] ?></div>
+            <div class="h5">-</div>
+              <div class="h5"><?php echo $education['endDate'] ?></div>
           </div>
         </div>
         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body">
-            <div class="h5">Master of Information Technology</div>
-            <p class="category">University of Computer Science</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+            <div class="h5"><?php echo $education['degree'] ?></div>
+            <p class="category"><?php echo $education['schoolName'] ?></p>
+            <p><?php echo $education['description'] ?></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2013 - 2015</p>
-            <div class="h5">Master's Degree</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Master of Information Technology</div>
-            <p class="category">University of Computer Science</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2009 - 2013</p>
-            <div class="h5">Bachelor's Degree</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Bachelor of Computer Science</div>
-            <p class="category">University of Computer Science</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+        <?php } ?>
   </div>
 </div>
 <div class="section" id="contact">
@@ -264,37 +226,61 @@
         <div class="row">
           <div class="col-md-9">
             <div class="card mb-0" data-aos="zoom-in">
-              <div class="h4 text-center title">Contact Me</div>
+              <div class="h4 text-center title">Contactez moi !</div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="card-body">
-                    <form action="https://formspree.io/your@email.com" method="POST">
-                      <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                  <?php
+                  $name = $_POST['name'] ?? false;
+                  $subject = $_POST['subject'] ?? false;
+                  $mail = $_POST['mail'] ?? false;
+                  $message = $_POST['message'] ?? false;
+
+                  if ($name && $subject && $mail && $message)
+                  {
+                    $today = date("Y-m-d H:i:s");
+                    $query = 'INSERT INTO contact (name, subject, mail, message, sendingDate, idAdmin) values (:name, :subject, :mail, :message, :sendingDate, 1)';
+                    $query = $pdo->prepare($query);
+                    $query->execute([
+                      'name' => $name,
+                      'subject' => $subject,
+                      'mail' => $mail,
+                      'message' => $message,
+                      'sendingDate' => $today
+
+                      ]);
+                      echo "<script> window.onload = function () { alert('Votre message a bien été envoyé');}</script>";
+                  }
+                  
+                  
+                  ?>
+                    <form action="" method="POST">
+                      <div class="p pb-3"><strong>N'hésitez pas à me contacter</strong></div>
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                            <input class="form-control" type="text" name="name" placeholder="Name" required="required"/>
+                            <input class="form-control" type="text" name="name" placeholder="Nom Complet" required="required"/>
                           </div>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                            <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required"/>
+                            <input class="form-control" type="text" name="subject" placeholder="Objet" required="required"/>
                           </div>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required"/>
+                            <input class="form-control" type="email" name="mail" placeholder="E-mail" required="required"/>
                           </div>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col">
                           <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                            <textarea class="form-control" name="message" placeholder="Votre message" required="required"></textarea>
                           </div>
                         </div>
                       </div>
@@ -308,12 +294,18 @@
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
-                    <p class="mb-0"><strong>Address </strong></p>
-                    <p class="pb-2">140, City Center, New York, U.S.A</p>
-                    <p class="mb-0"><strong>Phone</strong></p>
-                    <p class="pb-2">+1718-111-0011</p>
+                  <?php
+                    $query = $pdo->prepare('SELECT * FROM Admin');
+                    $query->execute();
+                    $admins = $query->fetchAll();
+                    foreach ($admins as $admin)
+                    { ?>
+                    <p class="mb-0"><strong>Adresse </strong></p>
+                    <p class="pb-2"><?php echo $admin['address']. ' ' .$admin['postalCode']. ' ' .$admin['city'] ?></p>
+                    <p class="mb-0"><strong>Téléphone</strong></p>
+                    <p class="pb-2"><?php echo $admin['telephoneNumber'] ?></p>
                     <p class="mb-0"><strong>Email</strong></p>
-                    <p>anthony@company.com</p>
+                    <p><?php echo $admin['mail'] ?></p>
                   </div>
                 </div>
               </div>
@@ -323,14 +315,16 @@
       </div>
     </div>
   </div>
-</div></div>
+</div>
+</div>
     </div>
     <footer class="footer">
       <div class="container text-center">
-        <a class="cc-twitter btn btn-link " href="#"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
-        <a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+        <a class="cc-github btn btn-link " href="<?php echo $admin['gitLink'] ?>" target= _blank title="Lien vers mon Git"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
+        <a class="cc-linkedin btn btn-link" href="<?php echo $admin['linkedinLink'] ?>" target= _blank title="Lien vers mon LinkedIn"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
       </div>
-      <div class="h4 title text-center">Rémi Feydit</div>
+      <div class="h4 title text-center"><?php echo $admin['firstName']. ' ' .$admin['lastName'] ?></div>
+      <?php } ?>
       <div class="text-center text-muted">
         <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
       </div>

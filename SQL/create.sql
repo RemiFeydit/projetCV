@@ -53,10 +53,10 @@ CREATE TABLE Contact
 (
 id INT NOT NULL AUTO_INCREMENT,
 last_name VARCHAR(20),
-first_name VARCHAR(20),
 mail VARCHAR(50),
-sendingDate VARCHAR(20),
 object VARCHAR(50),
+sendingDate VARCHAR(20),
+message TEXT,
 idAdmin INT,
 PRIMARY KEY (id),
 FOREIGN KEY (idAdmin) REFERENCES Admin(id)

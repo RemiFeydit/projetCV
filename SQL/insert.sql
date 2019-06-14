@@ -16,4 +16,4 @@ INSERT INTO Skills(skillName, level, idAdmin)
 VALUES ('Programmation C', 50, 1);
 
 INSERT INTO ProfessionalExperience(compagnyName, startDate, endDate, jobName, idAdmin)
-VALUES('La Poste', 'Mi-Juillet', 'Mi-Août', 'Facteur à vélo', 1);
+VALUES('La Poste', 'Mi-Juillet ', 'Mi-Août', 'Facteur à vélo', 1);
