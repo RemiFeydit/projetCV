@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php 
-    include_once("include/head.php");
-    include_once('./func/pdo.php');
+    include_once("../include/head.php");
+    include_once('../func/pdo.php');
     $pdo = connect_pdo();
     ?>
     <title>Messages</title>
 </head>
 <body>
 <?php
-include_once("include/header.php");
+include_once("../include/header.php");
 
 session_name();
 session_start();
 if(empty($_SESSION['admin'])){
-  header('Location: login.php');
+  header('Location: ../login.php');
 }
 ?>
 <div class="row">
@@ -50,7 +50,7 @@ if(empty($_SESSION['admin'])){
             </p><?php echo $message['message']?></p>
         </div>
         <div class="card-action">
-            <a href="./deleteMessage.php?id=<?php echo $message['id']; ?>">Supprimer</a>
+            <a class="red white-text" href="./delete/deleteMessage.php?id=<?php echo $message['id']; ?>">Supprimer</a>
         </div>
       </div>
       <div class="col s12 m4"></div>

@@ -50,7 +50,7 @@
     }
     if (!empty($_SESSION['admin']))
     {
-        header('Location: ./admin.php');
+        header('Location: ./dashboard/dashboard.php');
     }
 ?>
 

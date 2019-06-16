@@ -56,16 +56,16 @@
       <div class="page-header-image" data-parallax="true" style="background-image: url('images/fondHeader.jpg');"></div>
       <div class="container">
         <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="./images/photo.jpg" alt="Image"/></a></div>
-          <div class="h2 title"><?php ?></div>
+          <div class="cc-profile-image"><a href="#"><img src="<?= $admin['picture']?>" alt="Image"/></a></div>
+          <div class="h2 title"></div>
           <p class="category text-white">Développeur logiciel</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez moi</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Télécharger CV</a>
         </div>
       </div>
       <div class="section">
         <div class="container">
           <div class="button-container">
-            <a class="btn btn-default btn-round btn-lg btn-icon" href="<?php echo $admin['gitLink']?>" target= _blank rel="tooltip" title="" data-original-title="Suivez moi sur GitHub !"><i class="fa fa-github"></i></a>
-            <a class="btn btn-default btn-round btn-lg btn-icon" href="<?php echo $admin['linkedinLink']?>" target= _blank rel="tooltip" title="" data-original-title="Suivez moi sur LinkedIn !"><i class="fa fa-linkedin"></i></a>
+            <a class="btn btn-default btn-round btn-lg btn-icon" href="<?= $admin['gitLink']?>" target= _blank rel="tooltip" title="" data-original-title="Suivez moi sur GitHub !"><i class="fa fa-github"></i></a>
+            <a class="btn btn-default btn-round btn-lg btn-icon" href="<?= $admin['linkedinLink']?>" target= _blank rel="tooltip" title="" data-original-title="Suivez moi sur LinkedIn !"><i class="fa fa-linkedin"></i></a>
           </div> 
         </div>
       </div>
@@ -79,7 +79,7 @@
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
             <div class="h4 mt-0 title">À propos de moi :</div>
-            <p>Je suis un étudiant en informatique en 1er année chez Ynov Informatique</p>
+            <p><?= $admin['description']?></p>
           </div>
         </div>
         <div class="col-lg-6 col-md-12">
@@ -87,23 +87,23 @@
             <div class="h4 mt-0 title">Information Basique</div>
             <div class="row">
               <div class="col-sm-4"><strong class="text-uppercase">Âge :</strong></div>
-              <div class="col-sm-8"><?php echo $age ?></div>
+              <div class="col-sm-8"><?= $age ?></div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Email :</strong></div>
-              <div class="col-sm-8"><?php echo $admin['mail'] ?></div>
+              <div class="col-sm-8"><?= $admin['mail'] ?></div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Téléphone :</strong></div>
-              <div class="col-sm-8"><?php echo $admin['telephoneNumber'] ?> </div>
+              <div class="col-sm-8"><?= $admin['telephoneNumber'] ?> </div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Adresse :</strong></div>
-              <div class="col-sm-8"><?php echo $admin['address']. ' ' . $admin['postalCode']. ' ' .$admin['city'] ?> </div>
+              <div class="col-sm-8"><?= $admin['address']. ' ' . $admin['postalCode']. ' ' .$admin['city'] ?> </div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Langue :</strong></div>
-              <div class="col-sm-8"><?php echo $admin['languages'] ?></div>
+              <div class="col-sm-8"><?= $admin['languages'] ?></div>
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@
                       'sendingDate' => $today
 
                       ]);
-                      echo "<script> window.onload = function () { alert('Votre message a bien été envoyé');}</script>";
+                      echo "<script type='text/javascript'>document.location.replace('./index.php');</script>";
                   }
                   
                   

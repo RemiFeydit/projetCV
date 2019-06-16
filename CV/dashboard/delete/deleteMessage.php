@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php 
-    include_once("include/head.php");
-    include_once('./func/pdo.php');
+    include_once("../../include/head.php");
+    include_once('../../func/pdo.php');
     $pdo = connect_pdo();
     ?>
     <title>Suppresion</title>
 </head>
 <body>
 <?php
-    include_once("include/header.php");
+    include_once("../../include/header.php");
 
     session_name();
     session_start();
     if(empty($_SESSION['admin'])){
-    header('Location: login.php');
+    header('Location: ../../login.php');
     }
 
     $id = $_GET['id'] ?? false;
     if ($id === false)
     {
-        header('Location: ./admin.php');
+        header('Location: ../dashboard.php');
         exit();
     }
 
@@ -32,7 +32,7 @@
     $query = $pdo->prepare($query);
     $query->execute(['id' => $id]);
 
-    header('Location: ./message.php');
+    header('Location: ../message.php');
 ?>
     
 </body>
