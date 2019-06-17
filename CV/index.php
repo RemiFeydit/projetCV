@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php 
     include_once('./func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
   </head>
   <body id="top">
@@ -23,7 +23,7 @@
       <div class="profile-page sidebar-collapse">
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
           <div class="container">
-            <div class="navbar-translate"><a class="navbar-brand" href="./index.php" rel="tooltip"><b>rfeydit</b>.com</a>
+            <div class="navbar-translate"><a class="navbar-brand" href="./index.php" rel="tooltip"><b>remifeydit</b>.fr</a>
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">

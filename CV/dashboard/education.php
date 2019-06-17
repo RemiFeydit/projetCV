@@ -7,7 +7,7 @@
     <?php 
     include_once("../include/head.php");
     include_once('../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
     <title>Éducation</title>
 </head>
@@ -15,7 +15,8 @@
 <?php
 include_once("../include/header.php");
 
-session_name();
+
+session_name(); 
 session_start();
 if(empty($_SESSION['admin'])){
   header('Location: ../login.php');
@@ -50,8 +51,8 @@ if(empty($_SESSION['admin'])){
             </p><?php echo $degree['description']?></p>
         </div>
         <div class="card-action">
-            <a class="red white-text" href="./delete/deleteEducation.php?id=<?php echo $degree['id']; ?>">Supprimer</a>
-            <a class="blue darken-2 white-text" href="./edit/editEducation.php?id=<?php echo $degree['id']; ?>">Modifier</a>
+            <a class="waves-effect waves-light btn red darken-2" href="./delete/deleteEducation.php?id=<?php echo $degree['id']; ?>">Supprimer</a>
+            <a class="waves-effect waves-light btn blue darken-2 white-text" href="./edit/editEducation.php?id=<?php echo $degree['id']; ?>">Modifier</a>
         </div>
       </div>
       <div class="col s12 m4"></div>

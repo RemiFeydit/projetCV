@@ -7,7 +7,7 @@
     <?php 
     include_once("../include/head.php");
     include_once('../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
     <title>Messages</title>
 </head>
@@ -15,7 +15,8 @@
 <?php
 include_once("../include/header.php");
 
-session_name();
+
+session_name(); 
 session_start();
 if(empty($_SESSION['admin'])){
   header('Location: ../login.php');
@@ -50,7 +51,7 @@ if(empty($_SESSION['admin'])){
             </p><?php echo $message['message']?></p>
         </div>
         <div class="card-action">
-            <a class="red white-text" href="./delete/deleteMessage.php?id=<?php echo $message['id']; ?>">Supprimer</a>
+            <a class="waves-effect waves-light btn red darken-2 white-text" href="./delete/deleteMessage.php?id=<?php echo $message['id']; ?>">Supprimer</a>
         </div>
       </div>
       <div class="col s12 m4"></div>

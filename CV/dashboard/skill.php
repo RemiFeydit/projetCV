@@ -7,7 +7,7 @@
     <?php 
     include_once("../include/head.php");
     include_once('../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
     <title>Compétences</title>
 </head>
@@ -15,7 +15,8 @@
 <?php
 include_once("../include/header.php");
 
-session_name();
+
+session_name(); 
 session_start();
 if(empty($_SESSION['admin'])){
   header('Location: ../login.php');
@@ -25,7 +26,7 @@ if(empty($_SESSION['admin'])){
     <div class="col s12 m12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">Éducation :</span>
+          <span class="card-title">Compétences :</span>
           <?php
           $query = $pdo->prepare('SELECT * FROM skills');
           $query->execute();
@@ -44,8 +45,8 @@ if(empty($_SESSION['admin'])){
             <p><?php echo $skill['level']?>%</p>
         </div>
         <div class="card-action">
-            <a class="red white-text" href="./delete/deleteSkill.php?id=<?php echo $skill['id']; ?>">Supprimer</a>
-            <a class="blue darken-2 white-text" href="./edit/editSkill.php?id=<?php echo $skill['id']; ?>">Modifier</a>
+            <a class="waves-effect waves-light btn red darken-2" href="./delete/deleteSkill.php?id=<?php echo $skill['id']; ?>">Supprimer</a>
+            <a class="waves-effect waves-light btn blue darken-2 white-text" href="./edit/editSkill.php?id=<?php echo $skill['id']; ?>">Modifier</a>
         </div>
       </div>
       <div class="col s12 m4"></div>

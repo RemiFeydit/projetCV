@@ -8,7 +8,7 @@
     <?php 
     include_once("../../include/head.php");
     include_once('../../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
 </head>
 <body>
@@ -39,20 +39,20 @@ foreach ($skills as $skill)
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="skillName" value="<?= $skill['skillName']?>" class="validate">
-                                <label for="user">Nom de la compétence</label>
+                                <input id="skillName" type="text" name="skillName" value="<?= $skill['skillName']?>" class="validate">
+                                <label for="skillName">Nom de la compétence</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="password" type="text" name='level' value="<?= $skill['level']?>" class="validate">
-                                <label for="password">Niveau (en %) :</label>
+                                <input id="level" type="text" name='level' value="<?= $skill['level']?>" class="validate">
+                                <label for="level">Niveau (en %) :</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Modifier<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>

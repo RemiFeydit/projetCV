@@ -7,7 +7,7 @@
     <?php 
     include_once("../include/head.php");
     include_once('../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
     <title>Éducation</title>
 </head>
@@ -15,7 +15,8 @@
 <?php
 include_once("../include/header.php");
 
-session_name();
+
+session_name(); 
 session_start();
 if(empty($_SESSION['admin'])){
   header('Location: ../login.php');
@@ -25,7 +26,7 @@ if(empty($_SESSION['admin'])){
     <div class="col s12 m12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">Éducation :</span>
+          <span class="card-title">Expérience professionnelle :</span>
           <?php
           $query = $pdo->prepare('SELECT * FROM professionalexperience');
           $query->execute();
@@ -50,8 +51,8 @@ if(empty($_SESSION['admin'])){
             </p><?php echo $experience['description']?></p>
         </div>
         <div class="card-action">
-            <a class="red white-text" href="./delete/deleteExpPro.php?id=<?php echo $experience['id']; ?>">Supprimer</a>
-            <a class="blue white-text" href="./edit/editExpPro.php?id=<?php echo $experience['id']; ?>">Modifier</a>
+            <a class="waves-effect waves-light btn red darken-2" href="./delete/deleteExpPro.php?id=<?php echo $experience['id']; ?>">Supprimer</a>
+            <a class="waves-effect waves-light btn blue darken-2" href="./edit/editExpPro.php?id=<?php echo $experience['id']; ?>">Modifier</a>
         </div>
       </div>
       <div class="col s12 m4"></div>

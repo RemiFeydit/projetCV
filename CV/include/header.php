@@ -1,7 +1,7 @@
 <header>
 <nav>
     <div class="nav-wrapper  green darken-4">
-      <a href="../index.php" class="brand-logo">rfeydit.<b>fr</b></a>
+      <a href="../index.php" class="brand-logo">remifeydit.<b>fr</b></a>
       <ul class="right hide-on-med-and-down">
         <li><a class="waves-effect waves-light btn grey" href="/CV/dashboard/dashboard.php">Accueil</a></li>
         <li><a class="waves-effect waves-light btn grey" href="/CV/dashboard/message.php">Messages</a></li>

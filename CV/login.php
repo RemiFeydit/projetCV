@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?php 
     include_once('./func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
     <title>Login</title>
 </head>
@@ -19,13 +19,13 @@
     <header>
     <nav>
     <div class="nav-wrapper  green darken-4">
-      <a href="" class="brand-logo">rfeydit.<b>fr</b></a>
+      <a href="index.php" class="brand-logo"><b>remifeydit</b>.fr</a>
     </div>
   </nav>
 </header>
 <main>
 <?php
-	session_name();
+    session_name(); 
     session_start();
     
 
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Se connecter<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>

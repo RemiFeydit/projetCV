@@ -8,7 +8,7 @@
     <?php 
     include_once("../../include/head.php");
     include_once('../../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
 </head>
 <body>
@@ -39,44 +39,44 @@ foreach ($experiences as $experience)
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="companyName" value="<?= $experience['companyName']?>" class="validate">
-                                <label for="user">Nom entreprise</label>
+                                <input id="companyName" type="text" name="companyName" value="<?= $experience['companyName']?>" class="validate">
+                                <label for="companyName">Nom entreprise</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="password" type="text" name='startDate' value="<?= $experience['startDate']?>" class="validate">
-                                <label for="password">Date de début</label>
+                                <input id="startDate" type="text" name='startDate' value="<?= $experience['startDate']?>" class="validate">
+                                <label for="startDate">Date de début</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="endDate" value="<?= $experience['endDate']?>" class="validate">
-                                <label for="user">Date de fin</label>
+                                <input id="endDate" type="text" name="endDate" value="<?= $experience['endDate']?>" class="validate">
+                                <label for="endDate">Date de fin</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="jobName" value="<?= $experience['jobName'] ?>" class="validate">
-                                <label for="user">Nom métier</label>
+                                <input id="jobName" type="text" name="jobName" value="<?= $experience['jobName'] ?>" class="validate">
+                                <label for="jobName">Nom métier</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="description" value="<?= $experience['description'] ?>" class="validate">
-                                <label for="user">Description</label>
+                                <input id="description" type="text" name="description" value="<?= $experience['description'] ?>" class="validate">
+                                <label for="description">Description</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Modifier<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>

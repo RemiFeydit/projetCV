@@ -1,5 +1,5 @@
 <?php
-function connect_pdo ()
+function connectPDO ()
 {
 	$database_host = 'localhost';
 	$database_port = '3306';

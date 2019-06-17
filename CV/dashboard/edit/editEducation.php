@@ -8,7 +8,7 @@
     <?php 
     include_once("../../include/head.php");
     include_once('../../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
 </head>
 <body>
@@ -76,7 +76,7 @@ foreach ($degrees as $degree)
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Modifier<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>

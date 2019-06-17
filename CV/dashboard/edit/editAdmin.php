@@ -8,7 +8,13 @@
     <?php 
     include_once("../../include/head.php");
     include_once('../../func/pdo.php');
-    $pdo = connect_pdo();
+    session_name(); 
+    session_start();
+
+    if(empty($_SESSION['admin'])){
+    header('Location: ./../../login.php');
+    }
+    $pdo = connectPDO();
     ?>
 </head>
 <body>
@@ -100,7 +106,7 @@ foreach ($admins as $admin)
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Modifier<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>

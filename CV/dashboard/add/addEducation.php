@@ -8,7 +8,7 @@
     <?php 
     include_once("../../include/head.php");
     include_once('../../func/pdo.php');
-    $pdo = connect_pdo();
+    $pdo = connectPDO();
     ?>
 </head>
 <body>
@@ -57,12 +57,12 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <input id="user" type="text" name="description" class="validate">
-                                <label for="user">Description</label>
+                                <input id="description" type="text" name="description" class="validate">
+                                <label for="description">Description</label>
                             </div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light" type="submit">Ajouter<i class="material-icons right">send</i>
                 </button>
             </form>
         </div>
