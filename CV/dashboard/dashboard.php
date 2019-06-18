@@ -9,7 +9,7 @@
     include_once('../func/pdo.php');
     $pdo = connectPDO();
     ?>
-    <title>Admin</title>
+    <title>Dashboard</title>
 </head>
 <body>
 <?php

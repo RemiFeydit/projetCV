@@ -9,7 +9,7 @@
     include_once('../func/pdo.php');
     $pdo = connectPDO();
     ?>
-    <title>Éducation</title>
+    <title>Expérience Professionnelle</title>
 </head>
 <body>
 <?php

@@ -23,7 +23,7 @@
       <div class="profile-page sidebar-collapse">
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
           <div class="container">
-            <div class="navbar-translate"><a class="navbar-brand" href="./index.php" rel="tooltip"><b>remifeydit</b>.fr</a>
+            <div class="navbar-translate"><a class="navbar-brand" href="./index.php" rel="tooltip"><b>rfeydit</b>.fr</a>
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation">
@@ -58,7 +58,7 @@
         <div class="content-center">
           <div class="cc-profile-image"><a href="#"><img src="<?= $admin['picture']?>" alt="Image"/></a></div>
           <div class="h2 title"></div>
-          <p class="category text-white">Développeur logiciel</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez moi</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Télécharger CV</a>
+          <p class="category text-white">Développeur logiciel</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contactez moi</a><a class="btn btn-primary" href="./cvFeyditRemi.pdf" target=_blank data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Télécharger CV</a>
         </div>
       </div>
       <div class="section">
@@ -286,7 +286,7 @@
                       </div>
                       <div class="row">
                         <div class="col">
-                          <button class="btn btn-primary" type="submit">Send</button>
+                          <button class="btn btn-primary" type="submit">Envoyer</button>
                         </div>
                       </div>
                     </form>

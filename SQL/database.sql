@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 17 Juin 2019 à 15:39
+-- Généré le :  Mar 18 Juin 2019 à 10:22
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -71,7 +71,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `name`, `subject`, `mail`, `message`, `sendingDate`, `idAdmin`) VALUES
-(22, 'remifeydit', 'Recrutement', 'notitou.pvp@gmail.com', 'sdnvindxvhiodhiog', '2019-06-16 01:43:13', 1);
+(23, 'FEYDIT Rémi', 'recrutement', 'feninz@fzojfz.com', 'Je suis un message qui s\'ajoute automatiquement dans la BDD', '2019-06-17 15:54:38', 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,8 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `startDate`, `endDate`, `schoolName`, `degree`, `description`, `idAdmin`) VALUES
-(1, '2009', '2013', 'Collège Cheverus', 'Brevet des collèges', 'Je sais pas vraiment je rempli juste ça pour faire genre j\'ai vraiment une description mais c\'est pas vraiment vrai', 1);
+(1, '2009', '2012', 'Collège Cheverus', 'Brevet des collèges', 'Le collège Cheverus est un établissement scolaire public à vocation linguistique internationale et européenne. Il héberge une section internationale espagnole, deux sections bilangues anglais-russe et anglais-espagnol, une section européenne anglais et une section sportive Badminton.', 1),
+(2, '2013', '2016', 'Lycée Condorcet', 'Baccalauréat S', 'Le Lycée Jean Condorcet offre un enseignement diversifié, tel que la filière d’enseignement général (séries S, L et ES), la filière d’enseignement technologique (STMG), l\'enseignement post-baccalauréat (BTS tertiaires). Il assure aussi activement une mission de prévention des ruptures scolaires et d’insertion dans le cadre du «pôle relais insertion».', 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,8 @@ CREATE TABLE `professionalexperience` (
 --
 
 INSERT INTO `professionalexperience` (`id`, `companyName`, `startDate`, `endDate`, `jobName`, `description`, `idAdmin`) VALUES
-(2, 'La Poste', 'Juillet 2017', 'Août 2017', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1);
+(2, 'La Poste', 'Juillet 2017', 'Août 2017', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1),
+(3, 'La Poste', 'Juillet 2018', 'Septembre 2018', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1);
 
 -- --------------------------------------------------------
 
@@ -137,11 +139,11 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`id`, `skillName`, `level`, `idAdmin`) VALUES
-(10, 'Programmation C', 50, 1),
 (11, 'Python', 80, 1),
 (12, 'SQL', 85, 1),
-(13, 'PHP', 80, 1),
-(14, 'Nul', 50, 1);
+(15, 'HTML/CSS', 40, 1),
+(16, 'Javascript', 60, 1),
+(17, 'Programmation C', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -152,15 +154,16 @@ INSERT INTO `skills` (`id`, `skillName`, `level`, `idAdmin`) VALUES
 CREATE TABLE `usercv` (
   `id` int(11) NOT NULL,
   `name` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL
+  `password` varchar(20) DEFAULT NULL,
+  `idAdmin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `usercv`
 --
 
-INSERT INTO `usercv` (`id`, `name`, `password`) VALUES
-(1, 'remifeydit', 'YUGIOH2013');
+INSERT INTO `usercv` (`id`, `name`, `password`, `idAdmin`) VALUES
+(1, 'remifeydit', 'azertyuiop', 1);
 
 --
 -- Index pour les tables exportées
@@ -204,7 +207,8 @@ ALTER TABLE `skills`
 -- Index pour la table `usercv`
 --
 ALTER TABLE `usercv`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idAdmin` (`idAdmin`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -219,22 +223,22 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT pour la table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `professionalexperience`
 --
 ALTER TABLE `professionalexperience`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `usercv`
 --
@@ -267,6 +271,12 @@ ALTER TABLE `professionalexperience`
 --
 ALTER TABLE `skills`
   ADD CONSTRAINT `skills_ibfk_1` FOREIGN KEY (`idAdmin`) REFERENCES `admin` (`id`);
+
+--
+-- Contraintes pour la table `usercv`
+--
+ALTER TABLE `usercv`
+  ADD CONSTRAINT `usercv_ibfk_1` FOREIGN KEY (`idAdmin`) REFERENCES `admin` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
