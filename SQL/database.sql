@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 18 Juin 2019 à 10:22
+-- Généré le :  Mar 18 Juin 2019 à 15:26
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -83,8 +83,8 @@ CREATE TABLE `education` (
   `id` int(11) NOT NULL,
   `startDate` varchar(30) DEFAULT NULL,
   `endDate` varchar(30) DEFAULT NULL,
-  `schoolName` varchar(20) DEFAULT NULL,
-  `degree` varchar(20) DEFAULT NULL,
+  `schoolName` varchar(50) DEFAULT NULL,
+  `degree` varchar(50) DEFAULT NULL,
   `description` text NOT NULL,
   `idAdmin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,7 +94,7 @@ CREATE TABLE `education` (
 --
 
 INSERT INTO `education` (`id`, `startDate`, `endDate`, `schoolName`, `degree`, `description`, `idAdmin`) VALUES
-(1, '2009', '2012', 'Collège Cheverus', 'Brevet des collèges', 'Le collège Cheverus est un établissement scolaire public à vocation linguistique internationale et européenne. Il héberge une section internationale espagnole, deux sections bilangues anglais-russe et anglais-espagnol, une section européenne anglais et une section sportive Badminton.', 1),
+(1, '2009', '2012', 'Collège Che', 'Brevet des collèges', 'Le collège Cheverus est un établissement scolaire public à vocation linguistique internationale et européenne. Il héberge une section internationale espagnole, deux sections bilangues anglais-russe et anglais-espagnol, une section européenne anglais et une section sportive Badminton.', 1),
 (2, '2013', '2016', 'Lycée Condorcet', 'Baccalauréat S', 'Le Lycée Jean Condorcet offre un enseignement diversifié, tel que la filière d’enseignement général (séries S, L et ES), la filière d’enseignement technologique (STMG), l\'enseignement post-baccalauréat (BTS tertiaires). Il assure aussi activement une mission de prévention des ruptures scolaires et d’insertion dans le cadre du «pôle relais insertion».', 1);
 
 -- --------------------------------------------------------
@@ -119,7 +119,9 @@ CREATE TABLE `professionalexperience` (
 
 INSERT INTO `professionalexperience` (`id`, `companyName`, `startDate`, `endDate`, `jobName`, `description`, `idAdmin`) VALUES
 (2, 'La Poste', 'Juillet 2017', 'Août 2017', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1),
-(3, 'La Poste', 'Juillet 2018', 'Septembre 2018', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1);
+(3, 'La Poste', 'Juillet 2018', 'Septembre 2018', 'Facteur à vélo', 'J\'ai effectué un travail de facteur à vélo. Le travail consistait à préparer ses tournées, trier le courrier et partir en tournée afin de distribuer les courriers que ce soit des lettres, des colis ou des recommandés. Le travail permettait de rencontrer des gens ainsi que l\'organisation de son courrier pour suivre le plan de sa tournée.', 1),
+(4, 'Ynov', '2018', '2019', 'étudiant', 'Ynov informatique', 1),
+(5, 'La Poste', '2018', 'Septembre 2018', 'Facteur à vélo', 'descrzqcaozcbzeoifevneoklnvse', 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +141,6 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`id`, `skillName`, `level`, `idAdmin`) VALUES
-(11, 'Python', 80, 1),
 (12, 'SQL', 85, 1),
 (15, 'HTML/CSS', 40, 1),
 (16, 'Javascript', 60, 1),
@@ -223,7 +224,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `education`
 --
@@ -233,7 +234,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT pour la table `professionalexperience`
 --
 ALTER TABLE `professionalexperience`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `skills`
 --
